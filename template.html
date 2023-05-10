@@ -28,7 +28,7 @@
                 <h5 class="card-title">{{ book.name }}</h5>
                 <p class="card-text">{{ book.author }}</p>
                 <p class="card-text">
-                  <small class="text-muted">Last updated 3 mins ago</small>
+                  <a href="{{ book.txt_path|replace(sep, '/')|urlencode }}">Читать</a>
                 </p>
               </div>
             </div>

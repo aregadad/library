@@ -20,7 +20,7 @@
         <div class="card mb-3" style="max-width: 540px">
           <div class="row no-gutters">
             <div class="col-md-4">
-              <img src="{{ book.cover_path|replace(sep, '/')|urlencode }}" class="card-img"
+              <img src="../{{ book.cover_path|replace(sep, '/')|urlencode }}" class="card-img"
                 alt="обложка книги {{ book.name }} - {{ book.author }}">
             </div>
             <div class="col-md-8">

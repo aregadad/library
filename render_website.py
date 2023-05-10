@@ -34,11 +34,7 @@ for page_num, books in enumerate(chunked(books, books_per_page), 1):
 
     with open(pages_path / f'index{page_num}.html', 'w', encoding="utf8") as file:
         file.write(rendered_page)
-
-    if page_num == 1:
-        with open('index.html', 'w', encoding="utf8") as file:
-            file.write(rendered_page)        
-
+ 
 def on_reload():
     print('Site rebuilt')
 

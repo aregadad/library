@@ -3,6 +3,7 @@ from livereload import Server
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import json
 from os import sep
+from more_itertools import chunked
 
 
 env = Environment(
@@ -16,7 +17,7 @@ with open('books.json', encoding='utf8') as file:
     books = json.load(file)
 
 rendered_page = template.render(
-    books=books,
+    chunked_books=chunked(books, 2),
     sep=sep
 )
 

@@ -1,8 +1,9 @@
-from http.server import HTTPServer, SimpleHTTPRequestHandler
+from livereload import Server
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import json
 from os import sep
+
 
 env = Environment(
     loader=FileSystemLoader('.'),
@@ -22,5 +23,10 @@ rendered_page = template.render(
 with open('index.html', 'w', encoding="utf8") as file:
     file.write(rendered_page)
 
-server = HTTPServer(('0.0.0.0', 8000), SimpleHTTPRequestHandler)
-server.serve_forever()
+def on_reload():
+    print('Site rebuilt')
+
+on_reload()
+server = Server()
+server.watch('template.html', on_reload)
+server.serve(root='.')

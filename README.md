@@ -1,7 +1,7 @@
 # Личная библиотека
 Отображает личную библиотеку в браузере. Работает без интернета.
 
-Протестировать онлайн версию можно по [ссылке]()
+Протестировать онлайн версию можно по [ссылке](https://aregadad.github.io/library/)
 
 ![library main page animation](https://dvmn.org/media/filer_public/11/9f/119fc7d8-216e-4bd1-9c18-b0d54e7c0fdc/ezgifcom-gif-maker_2.gif)
 

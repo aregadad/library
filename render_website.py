@@ -15,7 +15,8 @@ env = Environment(
 
 template = env.get_template('template.html')
 
-with open('books.json', encoding='utf8') as file:
+media_path = Path('media')
+with open(media_path / 'books.json', encoding='utf8') as file:
     books = json.load(file)
 
 pages_path = Path('pages')
@@ -33,6 +34,10 @@ for page_num, books in enumerate(chunked(books, books_per_page), 1):
 
     with open(pages_path / f'index{page_num}.html', 'w', encoding="utf8") as file:
         file.write(rendered_page)
+
+    if page_num == 1:
+        with open('index.html', 'w', encoding="utf8") as file:
+            file.write(rendered_page)        
 
 def on_reload():
     print('Site rebuilt')

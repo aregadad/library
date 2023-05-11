@@ -1,11 +1,11 @@
-from livereload import Server
+import json
+from math import ceil
+from os import sep
+from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
-import json
-from os import sep
+from livereload import Server
 from more_itertools import chunked
-from pathlib import Path
-from math import ceil
 
 
 env = Environment(

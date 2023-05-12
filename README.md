@@ -26,7 +26,6 @@ $ python render_website.py [-j JSON_DIR]
 Вы увидите:
 
 ```
-Site rebuilt
 Serving on http://127.0.0.1:5500
 Start watching changes
 Start detecting changes
@@ -40,7 +39,7 @@ $ python render_website.py --help
 Перейдите по адресу: [localhost:5500](http://localhost:5500/pages/index1.html)
 
 ## Где взять книги
-Несколько книг уже есть в репозитории. Но можно воспользоваться скриптами из [другого репозитория](https://github.com/aregadad/books), чтобы скачать больше. 
+Несколько книг уже есть в репозитории. Но можно воспользоваться скриптами из [другого репозитория](https://github.com/aregadad/books), чтобы скачать больше.
 ### Расположение файлов
 * книги – `./media/books/`
 * обложки – `./media/images/`

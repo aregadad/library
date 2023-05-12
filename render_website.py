@@ -39,7 +39,7 @@ for page_num, books_descriptions in enumerate(chunked(books_descriptions, books_
         max_page_num=max_page_num,
     )
 
-    with open(pages_path / f'index{page_num}.html', 'w', encoding="utf8") as file:
+    with open(pages_path / f'index{page_num}.html', 'w', encoding='utf8') as file:
         file.write(rendered_page)
 
 server = Server()

@@ -3,10 +3,17 @@ from math import ceil
 from os import sep
 from pathlib import Path
 
+import argparse
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from livereload import Server
 from more_itertools import chunked
 
+
+parser = argparse.ArgumentParser(
+    description='Run personal library server')
+parser.add_argument('-j', '--json_dir',
+                    help='books.json path (default: media)', default='media')
+args = parser.parse_args()                    
 
 env = Environment(
     loader=FileSystemLoader('.'),
@@ -15,15 +22,15 @@ env = Environment(
 
 template = env.get_template('template.html')
 
-media_path = Path('media')
-with open(media_path / 'books.json', encoding='utf8') as file:
+json_path = Path(args.json_dir)
+with open(json_path / 'books.json', encoding='utf8') as file:
     books = json.load(file)
 
 pages_path = Path('pages')
 pages_path.mkdir(parents=True, exist_ok=True)
 books_per_page = 20
 columns_per_page = 2
-max_page_num=ceil(len(books) / books_per_page)
+max_page_num = ceil(len(books) / books_per_page)
 for page_num, books in enumerate(chunked(books, books_per_page), 1):
     rendered_page = template.render(
         chunked_books=chunked(books, columns_per_page),
@@ -34,9 +41,11 @@ for page_num, books in enumerate(chunked(books, books_per_page), 1):
 
     with open(pages_path / f'index{page_num}.html', 'w', encoding="utf8") as file:
         file.write(rendered_page)
- 
+
+
 def on_reload():
     print('Site rebuilt')
+
 
 on_reload()
 server = Server()

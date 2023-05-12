@@ -20,7 +20,7 @@ pip install -r requirements.txt
 Запуск на Linux(Python 3) или Windows:
 
 ```bash
-$ python render_website.py runserver
+$ python render_website.py [-j JSON_DIR]
 ```
 
 Вы увидите:
@@ -32,6 +32,11 @@ Start watching changes
 Start detecting changes
 ...
 ```
+Используйте `help`, чтобы узнать подробности
+```bash
+$ python render_website.py --help
+```
+
 Перейдите по адресу: [localhost:5500](http://localhost:5500/pages/index1.html)
 
 ## Где взять книги

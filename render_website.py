@@ -24,16 +24,16 @@ template = env.get_template('template.html')
 
 json_path = Path(args.json_dir)
 with open(json_path / 'books.json', encoding='utf8') as file:
-    books = json.load(file)
+    books_descriptions = json.load(file)
 
 pages_path = Path('pages')
 pages_path.mkdir(parents=True, exist_ok=True)
 books_per_page = 20
 columns_per_page = 2
-max_page_num = ceil(len(books) / books_per_page)
-for page_num, books in enumerate(chunked(books, books_per_page), 1):
+max_page_num = ceil(len(books_descriptions) / books_per_page)
+for page_num, books_descriptions in enumerate(chunked(books_descriptions, books_per_page), 1):
     rendered_page = template.render(
-        chunked_books=chunked(books, columns_per_page),
+        chunked_books_descriptions=chunked(books_descriptions, columns_per_page),
         sep=sep,
         current_page_num=page_num,
         max_page_num=max_page_num,

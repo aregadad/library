@@ -42,12 +42,6 @@ for page_num, books_descriptions in enumerate(chunked(books_descriptions, books_
     with open(pages_path / f'index{page_num}.html', 'w', encoding="utf8") as file:
         file.write(rendered_page)
 
-
-def on_reload():
-    print('Site rebuilt')
-
-
-on_reload()
 server = Server()
-server.watch('template.html', on_reload)
+server.watch('template.html')
 server.serve(root='.')

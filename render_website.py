@@ -1,9 +1,9 @@
+import argparse
 import json
 from math import ceil
 from os import sep
 from pathlib import Path
 
-import argparse
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from livereload import Server
 from more_itertools import chunked

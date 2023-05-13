@@ -20,7 +20,7 @@ pip install -r requirements.txt
 Запуск на Linux(Python 3) или Windows:
 
 ```bash
-$ python render_website.py [-j JSON_DIR]
+$ python render_website.py [-j JSON_PATH]
 ```
 
 Вы увидите:

@@ -12,8 +12,8 @@ from more_itertools import chunked
 def main():
     parser = argparse.ArgumentParser(
         description='Run personal library server')
-    parser.add_argument('-j', '--json_dir',
-                        help='books.json path (default: media)', default='media')
+    parser.add_argument('-j', '--json_path',
+                        help='*.json path (default: media/books.json)', default='media/books.json')
     args = parser.parse_args()                    
 
     env = Environment(
@@ -23,8 +23,8 @@ def main():
 
     template = env.get_template('template.html')
 
-    json_path = Path(args.json_dir)
-    with open(json_path / 'books.json', encoding='utf8') as file:
+    json_path = Path(args.json_path)
+    with open(json_path, encoding='utf8') as file:
         books_descriptions = json.load(file)
 
     pages_path = Path('pages')
